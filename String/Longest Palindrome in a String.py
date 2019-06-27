@@ -1,14 +1,34 @@
+def longestPalSubstr(string):
+    maxLength = 1
+
+    start = 0
+    length = len(string)
+
+    low = 0
+    high = 0
+
+    for i in range(1, length):
+        low = i - 1
+        high = i
+        while low >= 0 and high < length and string[low] == string[high]:
+            if high - low + 1 > maxLength:
+                start = low
+                maxLength = high - low + 1
+            low -= 1
+            high += 1
+        low = i - 1
+        high = i + 1
+        while low >= 0 and high < length and string[low] == string[high]:
+            if high - low + 1 > maxLength:
+                start = low
+                maxLength = high - low + 1
+            low -= 1
+            high += 1
+    print(string[start:start + maxLength])
+
+    return maxLength
+
+
 for t in range(int(input())):
     stg = input()
-    i = 0
-    j = len(stg) - 1
-    index_left = 0
-    index_right = 0
-    while i < j:
-        if str[i] == str[j]:
-            index_left = i
-            index_right = j
-            while str[i] == str[j] and i < j:
-                i += 1
-                j -= 1
-
+    longestPalSubstr(stg)
