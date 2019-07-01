@@ -15,7 +15,7 @@ def numOfIds(pool):
             temp = 0
             list_of_8.pop(0)
             temp += 1
-            while len(useful_digits) > 0:
+            while len(useful_digits) > 0 and temp < 11:
                 useful_digits.pop(0)
                 temp += 1
             while temp < 11:
