@@ -12,7 +12,7 @@ for i in range(1, len(digits), 2):
     counts2[(digits[i]//10)] += 1
 ans = 0
 for i in range(0, len(digits)):
-    if counts[i] > 2 or counts2[i] > 2 :
+    if counts[i] > 2 or counts2[i] > 2:
         ans += 2
     elif counts[i] == 2 or counts2[i] == 2:
         ans += 1
