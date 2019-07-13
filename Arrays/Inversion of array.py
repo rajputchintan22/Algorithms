@@ -27,12 +27,12 @@ def merge(arr, l, m, r):
     k = l
     while k <= r:
         '''
-        if i == n1:
-            arr[k] = right[j]
+        if j == n1:
+            arr[k] = right[k]
+            k += 1
+        elif k == n2:
+            arr[k] = left[j]
             j += 1
-        elif j == n2:
-            arr[k] = left[i]
-            i += 1
         '''
         if left[i] <= right[j]:
             arr[k] = left[i]
