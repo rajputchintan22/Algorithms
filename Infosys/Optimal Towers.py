@@ -3,7 +3,7 @@ import sys
 k = int(sys.stdin.readline())
 m = int(sys.stdin.readline())
 height = []
-for i in range(0,m):
+for i in range(0, m):
     height.append(int(sys.stdin.readline()))
 
 previous_peak = [0]*m
@@ -21,6 +21,9 @@ for i in range(1,m-1):
 j = 1
 k1 = k
 ans = 0
+print(height)
+print(previous_peak)
+
 while j < m-1:
     k1 -= 1
     if k1 == 0:
