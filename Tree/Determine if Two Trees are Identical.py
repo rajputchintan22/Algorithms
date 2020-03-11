@@ -35,9 +35,9 @@ def PreOrder(root, ans):
     if root:
         ans.append(root.data)
         if root.left:
-            InOrder(root.left, ans)
+            PreOrder(root.left, ans)
         if root.right:
-            InOrder(root.right, ans)
+            PreOrder(root.right, ans)
 
 
 def isIdentical(root1, root2):

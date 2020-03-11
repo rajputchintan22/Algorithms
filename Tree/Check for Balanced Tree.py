@@ -1,30 +1,35 @@
 # User function Template for python3
 
 
-'''
-class Node:
-    def __init__(self, val):
-        self.right = None
-        self.data = val
+'''class Node:
+    # Constructor to create a new Node
+    def __init__(self, data):
+        self.data = data
         self.left = None
-'''
+        self.right = None'''
 
 
-def height(root, ans):
+class Height:
+    def __init__(self):
+        self.height = 0
+
+
+def isBalanced2(root, height):
+    lh = Height()
+    rh = Height()
     if root is None:
-        return 0
-    left_height = height(root.left, ans)
-    right_height = height(root.right, ans)
-    ans[0] = max(ans[0], 1 + left_height + right_height)
-    return 1 + max(left_height, right_height)
+        return True
+    l = isBalanced2(root.left, lh)
+    r = isBalanced2(root.right, rh)
+    height.height = max(lh.height, rh.height) + 1
+    if abs(lh.height - rh.height) <= 1:
+        return l and r
+    return False
 
 
-def diameter(root):
-    if root is None:
-        return 0
-    ans = [-999999999999]
-    height_of_tree = height(root, ans)
-    return ans[0]
+def isBalanced(root):
+    height = Height()
+    return isBalanced2(root, height)
 
 
 # {
@@ -33,9 +38,6 @@ def diameter(root):
 
 # Contributed by Sudarshan Sharma
 from collections import deque
-import sys
-
-sys.setrecursionlimit(50000)
 
 
 # Tree Node
@@ -107,7 +109,8 @@ if __name__ == "__main__":
     for _ in range(0, t):
         s = input()
         root = buildTree(s)
-        k = diameter(root)
-        print(k)
-
+        if isBalanced(root):
+            print(1)
+        else:
+            print(0)
 # } Driver Code Ends
